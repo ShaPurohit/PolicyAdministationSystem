@@ -1,0 +1,45 @@
+<div class="parent">
+  <div class="container" *ngIf="isBillMode">
+    <div >
+      <h2 class="heading"> POLICY BILL STATUS</h2>
+    </div>
+    <div class="bill__details">
+      <div class="billrow--detail">
+        <h5>LAST PAID DATE:</h5>
+        <p class="bill--tag">{{ lastPaidDate }}</p>
+      </div>
+
+      <div class="billrow--detail">
+        <h5>PREMIUM AMOUNT DATE:</h5>
+        <p class="bill--tag">{{ lateCharge }}</p>
+      </div>
+      <div class="billrow--detail">
+        <h5>DUE DATE:</h5>
+        <p class="bill--tag">{{ dueDate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Mode -->
+  <div class="container" *ngIf="!isBillMode">
+    <div>
+      <h2 class="heading">POLICY CLAIM STATUS</h2>
+    </div>
+    <div class="bill__details">
+      <div class="statusrow--detail">
+        <h5>POLICY CLAIM ID:</h5>
+        <p class="bill--tag bold">{{ claimId }}</p>
+      </div>
+
+      <div class="statusrow--detail">
+        <h5>POLICY CLAIM STATUS:</h5>
+        <p class="bill--tag bold">{{ claimStatus }}</p>
+      </div>
+
+      <div class="statusrow--detail">
+        <h5>DESCRIPTION:</h5>
+        <p class="bill--tag">{{ claimDescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>

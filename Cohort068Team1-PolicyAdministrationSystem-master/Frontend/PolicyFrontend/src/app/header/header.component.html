@@ -1,0 +1,40 @@
+<div class="header">
+  <nav
+    class="nav navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top"
+  >
+    <a class="navbar-brand" routerLink="home" >POLICY ADMINISTRATION SYSTEM</a >
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav nav-items">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="navbar-brand" routerLink="home">HOME</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="!isAuthenticated">
+          <a class="navbar-brand" routerLink="auth">LOGIN</a>
+        </li>
+
+        <div class="dropdown" routerLinkActive="active" *ngIf="isAuthenticated">
+          <div class="projects">
+            <button class="navbar-brand">
+              <img
+                src="../../assets/img/user.png"
+                alt="user icon"
+                class="user-icon"
+              />{{ username }}
+            </button>
+            <ul>
+              
+              <li [routerLink]="[username, 'getClaimStatus']">
+                <a>POLICY STATUS</a>
+              </li>
+              <li [routerLink]="[username, 'submitClaim']">
+                <a>SUBMIT POLICY CLAIMS</a>
+              </li>
+              <li [routerLink]="[username, 'viewClaims']"><a>POLICY BILLS</a></li>
+              <li (click)="onLogout()"><a>LOGOUT</a></li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</div>
